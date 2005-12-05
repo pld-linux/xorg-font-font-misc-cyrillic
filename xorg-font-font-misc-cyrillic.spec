@@ -1,14 +1,14 @@
 Summary:	misc-cyrillic font
 Summary(pl):	Font misc-cyrillic
 Name:		xorg-font-font-misc-cyrillic
-Version:	0.99.0
-Release:	0.01
+Version:	0.99.1
+Release:	0.1
 License:	MIT
-Group:		X11
-Source0:	http://xorg.freedesktop.org/X11R7.0-RC0/font/font-misc-cyrillic-%{version}.tar.bz2
-# Source0-md5:	2a956bd0f7c456a75eebf2b406721ea2
+Group:		Fonts
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/font/font-misc-cyrillic-%{version}.tar.bz2
+# Source0-md5:	71f5b4fcadf5dd156da186457f76058e
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-app-bdftopcf
@@ -16,6 +16,8 @@ BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
 BuildRequires:	xorg-font-font-util
 BuildRequires:	xorg-util-util-macros
+Requires(post,postun):	fontpostinst
+Requires:	%{_fontsdir}/cyrillic
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +33,8 @@ Font misc-cyrillic.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-fontdir=%{_fontsdir}/cyrillic
 
 %{__make}
 
@@ -44,6 +47,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+fontpostinst cyrillic
+
+%postun
+fontpostinst cyrillic
+
 %files
 %defattr(644,root,root,755)
-%{_libdir}/X11/fonts/cyrillic/*
+%doc COPYING ChangeLog
+%{_fontsdir}/cyrillic/*.pcf.gz
