@@ -1,5 +1,5 @@
 Summary:	misc-cyrillic font
-Summary(pl.UTF-8):   Font misc-cyrillic
+Summary(pl.UTF-8):	Font misc-cyrillic
 Name:		xorg-font-font-misc-cyrillic
 Version:	1.0.0
 Release:	0.1
