@@ -1,5 +1,5 @@
 Summary:	misc-cyrillic font
-Summary(pl):	Font misc-cyrillic
+Summary(pl.UTF-8):   Font misc-cyrillic
 Name:		xorg-font-font-misc-cyrillic
 Version:	1.0.0
 Release:	0.1
@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 misc-cyrillic font.
 
-%description -l pl
+%description -l pl.UTF-8
 Font misc-cyrillic.
 
 %prep
