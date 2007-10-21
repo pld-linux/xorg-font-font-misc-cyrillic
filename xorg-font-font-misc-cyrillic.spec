@@ -2,7 +2,7 @@ Summary:	Fixed Cyrillic bitmap fonts
 Summary(pl.UTF-8):	Fonty bitmapowe o stałej szerokości z cyrylicą
 Name:		xorg-font-font-misc-cyrillic
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	distributable (see COPYING)
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-misc-cyrillic-%{version}.tar.bz2
@@ -18,6 +18,7 @@ Requires(post,postun):	fontpostinst
 Requires:	%{_fontsdir}/cyrillic
 # contains useful aliases for these fonts
 Requires:	xorg-font-font-alias >= 1.0.0
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
